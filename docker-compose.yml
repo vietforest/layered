@@ -29,7 +29,8 @@ services:
         condition: service_healthy
 
   nginx:
-    image: nginx:alpine
+    build: ./nginx
+    dockerfile: Dockerfile
     container_name: esempio-nginx
     ports:
       - "8080:80"
