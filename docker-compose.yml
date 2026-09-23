@@ -33,7 +33,7 @@ services:
 
   nginx:
     build: 
-      context: ./nginx
+      context: ./be
       dockerfile: Dockerfile
     container_name: esempio-nginx
     ports:
