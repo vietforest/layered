@@ -20,6 +20,7 @@ services:
   backend:
     build:
       context: ./be
+      dockerfile: Dockerfile
     container_name: esempio-flask
     environment:
       DB_HOST: db
@@ -33,8 +34,7 @@ services:
 
   nginx:
     build: 
-      context: ./be
-      dockerfile: Dockerfile
+      context: ./nginx
     container_name: esempio-nginx
     ports:
       - "8085:80"
