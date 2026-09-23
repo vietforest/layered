@@ -29,8 +29,9 @@ services:
         condition: service_healthy
 
   nginx:
-    build: ./nginx
-    dockerfile: dockerfile
+    build: 
+      context: ./nginx
+      dockerfile: dockerfile
     container_name: esempio-nginx
     ports:
       - "8080:80"
