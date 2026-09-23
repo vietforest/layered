@@ -35,6 +35,7 @@ services:
   nginx:
     build: 
       context: ./nginx
+      dockerfile: dockerfile
     container_name: esempio-nginx
     ports:
       - "8085:80"
