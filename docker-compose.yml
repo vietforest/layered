@@ -5,7 +5,7 @@ services:
     # ports:
     #   - "3306:3306"
     environment:
-      MYSQL_USER: admin_user
+      MYSQL_USER: db_admin
       MYSQL_PASSWORD: admin_user_password
       MYSQL_ROOT_PASSWORD: segreta
       MYSQL_DATABASE: esempio
@@ -24,7 +24,8 @@ services:
     container_name: esempio-flask
     environment:
       DB_HOST: db
-      DB_PASSWORD: segreta
+      DB_PASSWORD: admin_user_password
+      DB_USER: db_admin
       DB_NAME: esempio
     volumes:
       - uploads:/app/uploads
