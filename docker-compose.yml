@@ -17,17 +17,16 @@ services:
       timeout: 5s
       retries: 10
 
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    container_name: pgadmin2
+  adminer:
+    image: adminer:latest
+    container_name: adminer
     restart: unless-stopped
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@example.com
-      PGADMIN_DEFAULT_PASSWORD: admin123
+      ADMINER_DEFAULT_SERVER: db
     ports:
-      - "8089:80"
-
-
+      - "8089:8080"
+    depends_on:
+      - db
 
   backend:
     build:
@@ -46,7 +45,7 @@ services:
         condition: service_healthy
 
   nginx:
-    build: 
+    build:
       context: ./nginx
       dockerfile: Dockerfile
     container_name: esempio-nginx
